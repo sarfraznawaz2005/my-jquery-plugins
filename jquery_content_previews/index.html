@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>jQuery Content Preview Demo</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./jquery-content-preview/jquery-content-preview.css">
+
+  <style>
+    body {
+      padding-top: 30px;
+    }
+
+    .left-round-image {
+      float: left;
+      margin-right: 10px;
+      border-radius: 50%;
+      height: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="preview card-title">Card title</h5>
+            <h6 class="preview card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="preview card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="preview card-link">Card link</a>
+            <a href="#" class="preview card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="preview card-title">Card title</h5>
+            <h6 class="preview card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">
+              <img class="preview left-round-image" src="https://www.gravatar.com/avatar/00000000000" />
+              <p class="preview">With supporting text below as a natural lead-in to additional content.</p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="card">
+      <div class="preview card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="preview card-title">Special title treatment</h5>
+        <p class="preview card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="preview btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="center-block">
+      <button class="btn btn-success" id="enable_previews">Enable Previews</button>
+      <button class="btn btn-danger" id="disable_previews">Disable Previews</button>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="./jquery-content-preview/jquery-content-preview.js"></script>
+
+  <script>
+    $('#enable_previews').click(function () {
+      $('.preview').contentPreview();
+    });
+
+    $('#disable_previews').click(function () {
+      $('.preview').contentPreview.remove();
+    });
+  </script>
+
+</body>
+
+</html>
