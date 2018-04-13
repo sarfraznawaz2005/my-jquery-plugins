@@ -15,29 +15,41 @@
  */
 (function ($) {
     $.fn.contentPreview = function (settings) {
+        var $this = this;
         var opts = $.extend({}, $.fn.contentPreview.defaults, settings);
         var options = $.extend({}, opts, $(this).data());
 
-        return this.each(function (el) {
-            var $this = $(this);
-            var $loader = $('<div class="__content_preview__"></div>');
+        function addPreviews($el) {
+            return $el.each(function (el) {
+                var $this = $(this);
+                var $loader = $('<div class="__content_preview__"></div>');
 
-            $loader.css({
-                'position': 'absolute',
-                'width': $this.css('width'),
-                'height': $this.css('height'),
-                'top': $this.offset().top,
-                'left': $this.offset().left,
-                'z-index': 999999999999999999999
+                $loader.css({
+                    'position': 'absolute',
+                    'width': $this.css('width'),
+                    'height': $this.css('height'),
+                    'top': $this.offset().top,
+                    'left': $this.offset().left,
+                    'z-index': 999999999999999999999
+                });
+
+                $loader.addClass('content-placeholder');
+                $('body').append($loader);
+
             });
+        }
 
-            $loader.addClass('content-placeholder');
-            $('body').append($loader);
+        $.fn.contentPreview.remove = function () {
+            $('div.__content_preview__').remove();
+        };
 
-            $.fn.contentPreview.remove = function () {
-                $('div.__content_preview__').remove();
-            };
+        addPreviews($this);
 
+        $(window).resize(function () {
+            if ($('div.__content_preview__').length) {
+                $.fn.contentPreview.remove();
+                addPreviews($this);
+            }
         });
     }
 })(jQuery);
