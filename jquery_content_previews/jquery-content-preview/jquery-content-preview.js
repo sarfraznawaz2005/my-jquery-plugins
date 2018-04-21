@@ -1,19 +1,19 @@
 /**
- * 
+ *
  * Plugin to add facebook-like content loading effect to specified elements.
  * Author: Sarfraz Ahmed
  * Version: 1.0.0
  *
  * Example Usage:
- * 
+ *
  * $('.someClass').contentPreview();
- * 
+ *
  * To remove added effect back:
- * 
+ *
  * $('.someClass').contentPreview.remove();
- * 
+ *
  */
-(function ($) {
+;(function ($, window, document, undefined) {
     $.fn.contentPreview = function (settings) {
         var $this = this;
         var opts = $.extend({}, $.fn.contentPreview.defaults, settings);
@@ -52,4 +52,4 @@
             }
         });
     }
-})(jQuery);
+})(jQuery, window, document);
